@@ -3,6 +3,7 @@ const todoModel = require('../model/todo_model')
 
 class todoServices {
 
+    /// create todo 
     static async createTodo(userId, title, desc) {
         try {
             const createTodoData = new todoModel({ userId, title, desc });
@@ -12,6 +13,7 @@ class todoServices {
         }
     }
 
+    /// get purticular user todo
     static async getUserTodo(userId) {
         try {
             const todo = await todoModel.find({ userId });
@@ -21,6 +23,7 @@ class todoServices {
         }
     }
 
+    ///delete purticular todo 
     static async deleteTodo(id) {
         try {
             const deleted = await todoModel.findByIdAndDelete({_id:id});
